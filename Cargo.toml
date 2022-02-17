@@ -21,6 +21,9 @@ defmt-rtt = "0.3.0"
 panic-probe = { version = "0.3.0", features = ["print-defmt"] }
 nrf9160-hal = "0.15.0"
 
+arrayvec = { version = "0.6", features = [], default-features = false }
+spin = "0.9"
+
 [dev-dependencies]
 defmt-test = "0.3.0"
 
