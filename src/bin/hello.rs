@@ -7,5 +7,7 @@ use nrf9160_rust_starter as _; // global logger + panicking-behavior + memory la
 fn main() -> ! {
     defmt::println!("Hello, world!");
 
-    nrf9160_rust_starter::exit()
+    loop {
+        cortex_m::asm::wfi();
+    }
 }
