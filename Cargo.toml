@@ -16,6 +16,7 @@ defmt-rtt = "0.3.0"
 panic-probe = { version = "0.3.0", features = ["print-defmt"] }
 nrf9160-hal = "0.15.0"
 nrfxlib= { git = "https://github.com/folkertdev/nrfxlib", rev = "a5672efcaeaf8f4485d755e086cb36c00f79ca78" }
+pcf85063a = { path = "../dis/pcf85063a"}
 tinyrlibc = "0.2.1"
 
 [dev-dependencies]
