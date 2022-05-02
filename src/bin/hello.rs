@@ -3,7 +3,7 @@
 
 use hal::Twim;
 use nrf9160_rust_starter as _; // global logger + panicking-behavior + memory layout
-use pcf85063a::{self, DateTime};
+use pcf85063a::{self, Control, DateTime};
 
 use nrf9160_hal as hal;
 use nrf9160_hal::pac;
@@ -47,6 +47,13 @@ fn main() -> ! {
     // set date and time in one go
     rtc.set_datetime(&now).unwrap();
 
+    rtc.set_alarm_seconds(10).unwrap();
+    rtc.set_alarm_minutes(52).unwrap();
+
+    rtc.control_alarm_seconds(Control::On).unwrap();
+    rtc.control_alarm_minutes(Control::On).unwrap();
+    rtc.control_alarm_interrupt(Control::On).unwrap();
+
     loop {
         delay.delay_ms(500 as u32);
 
@@ -64,8 +71,14 @@ fn main() -> ! {
             time.weekday
         );
 
+        if rtc.get_alarm_flag().unwrap() {
+            rtc.clear_alarm_flag().unwrap();
+            defmt::println!("----------------------- ALARM");
+            break;
+        }
+
         delay.delay_ms(500 as u32);
     }
 
-    // nrf9160_rust_starter::exit()
+    nrf9160_rust_starter::exit()
 }
