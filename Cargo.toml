@@ -9,14 +9,14 @@ version = "0.1.0"
 harness = false
 
 [dependencies]
-cortex-m = "0.7.3"
-cortex-m-rt = "0.7.0"
-defmt = "0.3.0"
-defmt-rtt = "0.3.0"
+cortex-m = "0.7.5"
+cortex-m-rt = "0.7.1"
+defmt = "0.3.2"
+defmt-rtt = "0.3.2"
 panic-probe = { version = "0.3.0", features = ["print-defmt"] }
-nrf9160-hal = "0.15.0"
-nrfxlib= { git = "https://github.com/folkertdev/nrfxlib", rev = "a5672efcaeaf8f4485d755e086cb36c00f79ca78" }
-tinyrlibc = "0.2.1"
+nrf9160-hal = "0.15.1"
+nrfxlib = "0.6.0"
+tinyrlibc = "0.2.2"
 
 [dev-dependencies]
 defmt-test = "0.3.0"
@@ -49,6 +49,7 @@ incremental = false
 # the bug results in log messages not having location information
 # (the line printed below the log message that contains the file-line location)
 # lto = 'fat'
+lto = 'thin' # <-
 opt-level = 3 # <-
 overflow-checks = false # <-
 
