@@ -3,7 +3,6 @@
 
 use cortex_m::asm::delay;
 use cortex_m_rt::entry;
-use nrf9160_hal::gpio::Level;
 use nrf9160_hal::{
     gpio,
     pac::Peripherals,
