@@ -17,6 +17,7 @@ panic-probe = { version = "0.3.0", features = ["print-defmt"] }
 nrf9160-hal = "0.15.0"
 nrfxlib= { git = "https://github.com/folkertdev/nrfxlib", rev = "a5672efcaeaf8f4485d755e086cb36c00f79ca78" }
 tinyrlibc = "0.2.1"
+pcf85063a = { git = "https://github.com/tweedegolf/pcf85063a.git", branch = "rtc-reset" }
 
 [dev-dependencies]
 defmt-test = "0.3.0"
