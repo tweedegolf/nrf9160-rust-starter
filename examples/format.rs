@@ -1,8 +1,8 @@
 #![no_main]
 #![no_std]
 
-use nrf9160_rust_starter as _; // global logger + panicking-behavior + memory layout
-use defmt::Format; // <- derive attribute
+use defmt::Format;
+use nrf9160_rust_starter as _; // global logger + panicking-behavior + memory layout // <- derive attribute
 
 #[derive(Format)]
 struct S1<T> {

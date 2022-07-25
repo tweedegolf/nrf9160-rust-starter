@@ -64,7 +64,10 @@ fn main() -> ! {
     loop {
         if let Some(length) = at_socket.recv(&mut buffer).unwrap() {
             if length != 0 {
-                defmt::info!("Sending to serial: {}", core::str::from_utf8(&buffer[..length]).unwrap());
+                defmt::info!(
+                    "Sending to serial: {}",
+                    core::str::from_utf8(&buffer[..length]).unwrap()
+                );
                 serial.write(&buffer[..length]).unwrap();
             }
         }
@@ -73,7 +76,10 @@ fn main() -> ! {
             serial.read_timeout(&mut buffer, &mut serial_timer, MILLISECOND_CYCLES * 100)
         {
             if length != 0 {
-                defmt::info!("Sending to at: {}", core::str::from_utf8(&buffer[..length]).unwrap());
+                defmt::info!(
+                    "Sending to at: {}",
+                    core::str::from_utf8(&buffer[..length]).unwrap()
+                );
                 at_socket.write(&buffer[..length]).unwrap();
             }
         }
