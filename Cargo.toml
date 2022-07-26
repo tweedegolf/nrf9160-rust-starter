@@ -18,6 +18,11 @@ nrf9160-hal = "0.15.1"
 nrfxlib = "0.6.0"
 tinyrlibc = "0.2.2"
 
+# This patch fixes a dependency collison between different versions of nrf9160-pac
+# The hal uses 0.11.0 and nrfxlib uses 0.2.1 of the pac -> rust-lld: error: duplicate symbol: DEVICE_PERIPHERALS
+[patch.crates-io]
+nrfxlib = { git = "https://github.com/folkertdev/nrfxlib", rev = "a5672efcaeaf8f4485d755e086cb36c00f79ca78" }
+
 [dev-dependencies]
 defmt-test = "0.3.0"
 
