@@ -3,7 +3,6 @@
 
 use defmt_rtt as _; // global logger
 
-// TODO(5) adjust HAL import
 use nrf9160_hal as _; // memory layout
 
 use panic_probe as _;
